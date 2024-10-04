@@ -65,6 +65,9 @@ Copyright © 2024 Trackle™️<br>
 The name Trackle and its logo are trademarks of Trackle™️.<br><br>
 
 <!-- CONTACT --->
+
+<h3>Contact</h3>
+
 <ul>
   <li><a href="mailto:hello@trackle.serv00.net">Email: hello@trackle.serv00.net</a></li>
   <li><a href="https://sbdesigns.netlify.app">SB Designs Website</a></li>
