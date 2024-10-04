@@ -9,6 +9,8 @@
   <li><a href="#how-to-use">How To Use</a></li>
   <li><a href="#stats">Stats</a></li>
   <li><a href="#technology-used">Technology Used</a></li>
+  <li><a href="#credits--licence">Credits & Licence</a></li>
+  <li><a href="#contact">Contact</a></li>
 </ol>
 
 <!-- WHAT IS TRACKLE™️? --->
@@ -51,3 +53,19 @@ Trackle™ is an engaging game where players test their knowledge by attempting 
 </ul>
 
 <!-- CREDITS & LICENCE --->
+
+<h3>Credits & Licence</h3>
+Trackle™️ is made by SB.<br>
+
+Thanks to TfL for the station names, the lines, the roundel, etc.<br>
+
+An Apache Licence for Trackle™️ is available <a href="/LICENCE">here</a>.<br><br>
+
+Copyright © 2024 Trackle™️<br>
+The name Trackle and its logo are trademarks of Trackle™️.<br><br>
+
+<!-- CONTACT --->
+<ul>
+  <li><a href="mailto:hello@trackle.serv00.net">Email: hello@trackle.serv00.net</a></li>
+  <li><a href="https://sbdesigns.netlify.app">SB Designs Website</a></li>
+</ul>
