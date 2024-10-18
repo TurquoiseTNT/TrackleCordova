@@ -1,3 +1,6 @@
+function goHome() {
+  window.location.href = "/home.html";
+}
 function enterGuess() {
     app.enterGuess();
   }
@@ -11,11 +14,11 @@ function enterGuess() {
   }
   
   function getStore() {
-    return JSON.parse(window.localStorage.getItem("places") || "{}");
+    return JSON.parse(window.localStorage.getItem("places_dce") || "{}");
   }
   
   function setStore(places) {
-    window.localStorage.setItem("places", JSON.stringify(places));
+    window.localStorage.setItem("places_dce", JSON.stringify(places));
   }
   
   function addToStore(place) {
@@ -96,7 +99,7 @@ function enterGuess() {
   
   App.prototype.displayScore = function () {
     var score = Object.keys(
-      JSON.parse(window.localStorage.getItem("places") || "{}")
+      JSON.parse(window.localStorage.getItem("places_dce") || "{}")
     ).length;
     document.getElementById("score").innerHTML = score;
     document.getElementById("total").innerHTML = this.placeList.length;
@@ -159,7 +162,7 @@ function enterGuess() {
   
   App.prototype.resetGame = function () {
     // Clear local storage
-    window.localStorage.removeItem("places");
+    window.localStorage.removeItem("places_dce");
   
     // Reset the score display
     document.getElementById("score").innerHTML = 0;

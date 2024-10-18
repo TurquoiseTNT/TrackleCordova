@@ -3,10 +3,16 @@
   "display": "standalone",
   "name": "Trackle",
   "short_name": "Trackle",
-  "version": "io.cordova.hellocordova",
+  "version": "me.glitch.trackle",
   "description": "Trackle™ is an engaging game where players test their knowledge by attempting to name all the stations within the TfL network. This includes the London Underground, the DLR, the Elizabeth Line, the London Overground, the Cable Car, and London Trams.",
   "author": "SB Studios",
-  "icons": [],
+  "icons": [
+    {
+      "src": "res/appicon.png",
+      "type": "image/png",
+      "sizes": "undefinedxundefined"
+    }
+  ],
   "start_url": "index.html",
   "theme_color": "#ffffff"
 }

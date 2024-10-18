@@ -17,7 +17,7 @@
        under the License.
  */
 
-package io.cordova.hellocordova;
+package me.glitch.trackle;
 
 import android.os.Bundle;
 

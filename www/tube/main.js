@@ -27,7 +27,7 @@ class App {
       }
     ).addTo(map);
 
-    let foundPlaces = JSON.parse(window.localStorage.getItem("places") || "{}");
+    let foundPlaces = JSON.parse(window.localStorage.getItem("places_tube") || "{}");
     this.placeList.forEach((place) => {
       if (foundPlaces[place.name]) {
         place.showOverlay();
