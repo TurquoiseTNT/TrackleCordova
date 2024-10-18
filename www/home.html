@@ -5,19 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Trackle™</title>
     <meta name="theme-color" content="#ffffff" />
-    <link href="https://fonts.cdnfonts.com/css/london-tube" rel="stylesheet" />
+    <style>
+      @font-face{font-family:london tube;font-style:normal;font-weight:400;src:local('London Tube'),url("/assets/London-Tube.woff") format('woff')}
+    </style>
     <link
       rel="icon"
       type="image/x-icon"
-      href="https://cdn.glitch.global/8357f303-720f-4e93-ab5a-fafe557be39c/Underground%20Roundel.ico?v=1697160561957"
+      href="/assets/roundel.ico"
     />
-    <link rel="manifest" href="/manifest.json" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <header>
       <img
-        src="https://upload.wikimedia.org/wikipedia/commons/c/ca/Underground_%28no_text%29.svg"
+        src="/assets/icon-180x180.png"
         alt="Logo"
       /><br />
       <h1>Trackle™</h1>
@@ -78,7 +79,7 @@
     <footer>
       <p>
         <b>Trackle™️ &#169; SB Designs 2024</b><br />The name Trackle and its
-        logo are trademarks of SB Designs.<br />Version 2.1.0
+        logo are trademarks of SB Designs.<br />Version 2.1.0<br />Ported to Cordova by TurquoiseTNT
       </p>
       <!-- Consistent Share Button Design -->
       <button
@@ -112,59 +113,7 @@
       >
     </footer>
 
-    <!-- Install prompt popup -->
-    <div id="installPrompt">
-      <p>Install the Trackle™ app for a better experience!</p>
-      <button
-        id="installButton"
-        class="styled-button"
-        style="background-color: #000f9f"
-        onmouseover="this.style.backgroundColor='#030f8a';"
-        onmouseout="this.style.backgroundColor='#000f9f';"
-      >
-        Install
-      </button>
-      <button
-        id="closeButton"
-        class="styled-button close-btn"
-        style="background-color: #000f9f"
-        onmouseover="this.style.backgroundColor='#030f8a';"
-        onmouseout="this.style.backgroundColor='#000f9f';"
-      >
-        X
-      </button>
-    </div>
-
     <script>
-      // Install prompt functionality
-      let deferredPrompt;
-      const installPrompt = document.getElementById("installPrompt");
-      const installButton = document.getElementById("installButton");
-      const closeButton = document.getElementById("closeButton");
-
-      window.addEventListener("beforeinstallprompt", (e) => {
-        e.preventDefault();
-        deferredPrompt = e;
-        installPrompt.style.display = "block";
-
-        installButton.addEventListener("click", () => {
-          installPrompt.style.display = "none";
-          deferredPrompt.prompt();
-          deferredPrompt.userChoice.then((choiceResult) => {
-            if (choiceResult.outcome === "accepted") {
-              console.log("User accepted the install prompt");
-            } else {
-              console.log("User dismissed the install prompt");
-            }
-            deferredPrompt = null;
-          });
-        });
-
-        closeButton.addEventListener("click", () => {
-          installPrompt.style.display = "none";
-        });
-      });
-
       // Share functionality
       const shareButton = document.getElementById("shareButton");
 
