@@ -5,8 +5,8 @@ jobs:
   Build-Unsigned-iOS-App:
     runs-on: macos-latest
     steps:
-      - name: List Directories
-        run: ls
+      - name: Check out repository code
+        uses: actions/checkout@v4
       - name: Install Cordova
         run: npm install -g cordova
       - name: Add Cordova Platform iOS
@@ -16,8 +16,8 @@ jobs:
   Build-Android-App:
     runs-on: ubuntu-latest
     steps:
-      - name: List Directories
-        run: ls
+      - name: Check out repository code
+        uses: actions/checkout@v4
       - name: Install Cordova
         run: npm install -g cordova
       - name: Install Android Tools
