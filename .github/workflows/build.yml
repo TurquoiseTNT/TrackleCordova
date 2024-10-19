@@ -28,3 +28,8 @@ jobs:
         run: cordova platform add android
       - name: Build ipa
         run: cordova build android
+      - name: Uploading Beta APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: trackle.apk
+          path: platforms/android/app/build/outputs/apk/debug/app-debug.apk
