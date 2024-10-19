@@ -6,7 +6,7 @@ jobs:
     runs-on: macos-latest
     steps:
       - name: List Directories
-        run: ls
+        run: echo *
       - name: Install Cordova
         run: npm install -g cordova
       - name: Add Cordova Platform iOS
@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: List Directories
-        run: ls
+        run: echo *
       - name: Install Cordova
         run: npm install -g cordova
       - name: Install Android Tools
