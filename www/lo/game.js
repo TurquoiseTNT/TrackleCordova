@@ -109,11 +109,7 @@ function enterGuess() {
       title: "Trackle™ - The Tube Guessing Game",
       text: shareText,
       url: window.location.href,
-    };
-    document.getElementById("share").onclick = (e) => {
-      e.preventDefault();
-      navigator.share(shareData);
-    };
+    }; 
   
     if (score == this.placeList.length) {
       setTimeout("app.winMessage()", 100);
