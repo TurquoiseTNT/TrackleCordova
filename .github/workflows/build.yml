@@ -12,7 +12,7 @@ jobs:
       - name: Add Cordova Platform iOS
         run: cordova platform add ios
       - name: Build ipa
-        run: cordova build ios
+        run: cordova build ios --device
   Build-Android-App:
     runs-on: ubuntu-latest
     steps:
