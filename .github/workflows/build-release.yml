@@ -29,7 +29,7 @@ jobs:
       - name: Build aab
         run: cordova build android --release
       - name: Build apk
-        run: cordova build android --release -- -- --packageType=apk
+        run: cordova build android --release -- --packageType=apk
       - name: Uploading Release AAB
         uses: actions/upload-artifact@v4
         with:
