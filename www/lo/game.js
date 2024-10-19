@@ -1,5 +1,9 @@
 function goHome() {
-  window.location.href = "/home.html";
+  if (localStorage.getItem("newDesign") === "true") {
+    window.location.href = "/newhome.html";
+  } else {
+    window.location.href = "/home.html";
+  }
 }
 function enterGuess() {
     app.enterGuess();
