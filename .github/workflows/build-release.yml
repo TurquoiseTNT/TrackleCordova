@@ -12,7 +12,7 @@ jobs:
       - name: Add Cordova Platform iOS
         run: cordova platform add ios
       - name: Build ipa
-        run: cordova build ios --device --release --buildFlag="CODE_SIGN_IDENTITY=''" --buildFlag="CODE_SIGNING_REQUIRED=NO" --buildFlag="CODE_SIGN_ENTITLEMENTS=''" --buildFlag="CODE_SIGNING_ALLOWED=NO"
+        run: cordova build ios --prod --device --release --buildFlag="CODE_SIGN_IDENTITY=''" --buildFlag="CODE_SIGNING_REQUIRED=NO" --buildFlag="CODE_SIGN_ENTITLEMENTS=''" --buildFlag="CODE_SIGNING_ALLOWED=NO"
       - name: Compress PLATFORMS folder for archival
         run: zip -vr platforms.zip platforms/ -x "*.DS_Store"
       - name: Uploading Release ZIP
