@@ -41,10 +41,27 @@ jobs:
       - name: Uploading Release AAB
         uses: actions/upload-artifact@v4
         with:
-          name: trackle.aab
+          name: Trackle AAB
           path: platforms/android/app/build/outputs/bundle/release/app-release.aab
       - name: Uploading Release APK
         uses: actions/upload-artifact@v4
         with:
-          name: trackle.apk
+          name: Trackle APK
           path: platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk
+  Build-Electron-App:
+    runs-on: windows-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - name: Install Cordova
+        run: npm install -g cordova
+      - name: Add Cordova Platform Electron
+        run: cordova platform add electron
+      - name: Build apk
+        run: cordova build electron --release
+      - name: Uploading Release AAB
+        uses: actions/upload-artifact@v4
+        with:
+          name: Trackle Setup
+          path: platforms/electron/build/Trackle Setup *.exe
+          if-no-files-found: error
