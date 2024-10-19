@@ -3,7 +3,7 @@ run-name: build cordova apps
 on: [push]
 jobs:
   Build-Unsigned-iOS-App:
-    runs-on: macos-latest
+    runs-on: macos-13
     steps:
       - name: Check out repository code
         uses: actions/checkout@v4
@@ -14,14 +14,16 @@ jobs:
       - name: Build ipa
         run: cordova build ios --buildFlag="CODE_SIGN_IDENTITY=''" --buildFlag="CODE_SIGNING_REQUIRED=NO" --buildFlag="CODE_SIGN_ENTITLEMENTS=''" --buildFlag="CODE_SIGNING_ALLOWED=NO"
   Build-Android-App:
-    runs-on: ubuntu-latest
+    runs-on: macos-13
     steps:
       - name: Check out repository code
         uses: actions/checkout@v4
       - name: Install Cordova
         run: npm install -g cordova
+      - name: Tap Homebrew
+        run: brew tap homebrew/cask
       - name: Install Android Tools
-        run: echo "Add Lines here to Install Gradle and Android Build Tools"
+        run: brew install --cask android-sdk
       - name: Add Cordova Platform Android
         run: cordova platform add android
       - name: Build ipa
