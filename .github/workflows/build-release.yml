@@ -1,0 +1,42 @@
+name: Cordova Build Release Apps
+run-name: build release version cordova apps
+on: [push]
+jobs:
+  Build-Unsigned-iOS-App:
+    runs-on: macos-13
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - name: Install Cordova
+        run: npm install -g cordova
+      - name: Add Cordova Platform iOS
+        run: cordova platform add ios
+      - name: Build ipa
+        run: cordova build ios --release --buildFlag="CODE_SIGN_IDENTITY=''" --buildFlag="CODE_SIGNING_REQUIRED=NO" --buildFlag="CODE_SIGN_ENTITLEMENTS=''" --buildFlag="CODE_SIGNING_ALLOWED=NO"
+  Build-Android-App:
+    runs-on: macos-13
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - name: Install Cordova
+        run: npm install -g cordova
+      - name: Tap Homebrew
+        run: brew tap homebrew/cask
+      - name: Install Android Tools
+        run: brew install --cask android-sdk
+      - name: Add Cordova Platform Android
+        run: cordova platform add android
+      - name: Build aab
+        run: cordova build android --release
+      - name: Build apk
+        run: cordova build android --release -- -- --packageType=apk
+      - name: Uploading Release AAB
+        uses: actions/upload-artifact@v4
+        with:
+          name: trackle.aab
+          path: platforms/android/app/build/outputs/bundle/release/app-release.aab
+      - name: Uploading Release APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: trackle.apk
+          path: platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk
