@@ -48,7 +48,7 @@ jobs:
         with:
           name: Trackle APK
           path: platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk
-  Build-Electron-App:
+  Build-WinElectron-App:
     runs-on: windows-latest
     steps:
       - name: Check out repository code
@@ -57,11 +57,28 @@ jobs:
         run: npm install -g cordova
       - name: Add Cordova Platform Electron
         run: cordova platform add electron
-      - name: Build apk
+      - name: Build app
         run: cordova build electron --release
-      - name: Uploading Release AAB
+      - name: Uploading Release Setup
         uses: actions/upload-artifact@v4
         with:
-          name: Trackle Setup
+          name: Trackle Windows
           path: platforms/electron/build/Trackle Setup *.exe
+          if-no-files-found: error
+  Build-LinElectron-App:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - name: Install Cordova
+        run: npm install -g cordova
+      - name: Add Cordova Platform Electron
+        run: cordova platform add electron
+      - name: Build app
+        run: cordova build electron --release
+      - name: Uploading Release Tar
+        uses: actions/upload-artifact@v4
+        with:
+          name: Trackle Linux
+          path: platforms/electron/build/me.glitch.trackle-*.tar.gz
           if-no-files-found: error
