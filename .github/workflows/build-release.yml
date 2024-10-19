@@ -2,24 +2,25 @@ name: Cordova Build Apps
 run-name: build version cordova apps
 on: [push]
 jobs:
-  Build-Unsigned-iOS-App:
-    runs-on: macos-13
-    steps:
-      - name: Check out repository code
-        uses: actions/checkout@v4
-      - name: Install Cordova
-        run: npm install -g cordova
-      - name: Add Cordova Platform iOS
-        run: cordova platform add ios
-      - name: Build ipa
-        run: cordova build ios --prod --release --buildFlag="CODE_SIGN_IDENTITY=''" --buildFlag="CODE_SIGNING_REQUIRED=NO" --buildFlag="CODE_SIGN_ENTITLEMENTS=''" --buildFlag="CODE_SIGNING_ALLOWED=NO"
-      - name: Compress PLATFORMS folder for archival
-        run: zip -vr platforms.zip platforms/ -x "*.DS_Store"
-      - name: Uploading Release ZIP
-        uses: actions/upload-artifact@v4
-        with:
-          name: platforms.zip
-          path: platforms.zip
+  ## Commented Out iOS Build as it currently does not work as there is no apple dev cert (costs £100/year - might see if school has an edu one)
+  #Build-Unsigned-iOS-App:
+  #  runs-on: macos-13
+  #  steps:
+  #    - name: Check out repository code
+  #      uses: actions/checkout@v4
+  #    - name: Install Cordova
+  #      run: npm install -g cordova
+  #    - name: Add Cordova Platform iOS
+  #      run: cordova platform add ios
+  #    - name: Build ipa
+  #      run: cordova build ios --prod --release --buildFlag="CODE_SIGN_IDENTITY=''" --buildFlag="CODE_SIGNING_REQUIRED=NO" --buildFlag="CODE_SIGN_ENTITLEMENTS=''" --buildFlag="CODE_SIGNING_ALLOWED=NO"
+  #    - name: Compress PLATFORMS folder for archival
+  #      run: zip -vr platforms.zip platforms/ -x "*.DS_Store"
+  #    - name: Uploading Release ZIP
+  #      uses: actions/upload-artifact@v4
+  #      with:
+  #        name: platforms.zip
+  #        path: platforms.zip
   Build-Android-App:
     runs-on: macos-13
     steps:
