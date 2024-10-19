@@ -12,7 +12,7 @@ jobs:
       - name: Add Cordova Platform iOS
         run: cordova platform add ios
       - name: Build ipa
-        run: cordova build ios --device
+        run: cordova build ios --buildFlag="CODE_SIGN_IDENTITY=''" --buildFlag="CODE_SIGNING_REQUIRED=NO" --buildFlag="CODE_SIGN_ENTITLEMENTS=''" --buildFlag="CODE_SIGNING_ALLOWED=NO"
   Build-Android-App:
     runs-on: ubuntu-latest
     steps:
