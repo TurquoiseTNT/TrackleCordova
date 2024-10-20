@@ -1,1 +1,2 @@
-# Trackle by SB Studios but more native and more offline
+# Go tothe new repo
+https://github.com/SB-Designs/Trackle-APK/
