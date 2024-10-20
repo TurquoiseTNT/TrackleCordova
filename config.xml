@@ -23,7 +23,4 @@
         <splash src="res/screen/ios/Default@2x~ipad~anyany.png" />
         <splash src="res/screen/ios/Default@2x~ipad~comany.png" />
     </platform>
-    <platform name="android">
-        <icon src="res/appicon.png"/>
-    </platform>
 </widget>
