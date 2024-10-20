@@ -82,3 +82,22 @@ jobs:
           name: Trackle Linux
           path: platforms/electron/build/me.glitch.trackle-*.tar.gz
           if-no-files-found: error
+  Build-MacElectron-App:
+    runs-on: macos-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - name: Install Cordova
+        run: npm install -g cordova
+      - name: Add Cordova Platform Electron
+        run: cordova platform add electron
+      - name: Build app
+        run: cordova build electron --release
+      - name: Zip Release
+        run: zip -vr platforms.zip platforms/ -x "*.DS_Store"
+      - name: Uploading Release Tar
+        uses: actions/upload-artifact@v4
+        with:
+          name: platforms.zip
+          path: platforms.zip
+          if-no-files-found: error
